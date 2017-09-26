@@ -24,14 +24,8 @@ board::board()
 		history[9] = 1;
 	}
 
-	try
-	{
-		ofile.open("gameHistory.txt", fstream::app);
-	}
-	catch (ofstream::failure e)
-	{
-		cerr << "Fail to write to file" << endl;
-	}
+	ofile.open("gameHistory.txt", fstream::app);
+	mode = 0; //0 = pvp, 1 = pvb, 2 = bvb
 }
 
 /*Checks the win condition of that player's turn and returns a boolean*/
@@ -208,6 +202,7 @@ void board::userController()
 					pushHistory();
 					if(winCondition()||isFull())
 					{
+						printBoard();
 						gameOver();
 					}
 					else
@@ -220,8 +215,8 @@ void board::userController()
 						{
 							player = 'O';
 						}
+						printBoard();
 					}
-					printBoard();
 				}
 				break;
 			default:
@@ -271,4 +266,9 @@ void board::historyStream()
 		ofile << history[i];
 	}
 	ofile << endl;
+}
+
+void board::setMode(int mode)
+{
+	this->mode = mode;
 }

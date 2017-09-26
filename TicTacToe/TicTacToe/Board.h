@@ -24,6 +24,7 @@ public:
 	void printHistory() const; //debugging function
 	void userController();
 	void historyStream();
+	void setMode(int mode);
 	
 
 protected:
@@ -32,6 +33,7 @@ protected:
 	bool isFull() const;
 	void pushHistory();
 
+	int mode;
 	char boardAr[9];
 	int userPosition;
 	char player;

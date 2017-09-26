@@ -4,11 +4,11 @@ HANDLE mConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
 void menuPtr(menu &m)
 {
+	ifstream ifile;
+	string lineInput = "";
 	const int m2Size = 4;
 	const string m2[m2Size] = { "Player vs. Player", "Player vs. Bot", "Bot vs. Bot", "Back" };
 	menu modeMenu(m2, m2Size, "Mode", "Main");
-
-	/*WORK ON GETTING TO THE SECOND MENU*/
 
 	int KB_code = 0;
 	printMenu(m);
@@ -44,8 +44,28 @@ void menuPtr(menu &m)
 						printMenu(m);
 						break;
 					case 1:
+						try
+						{
+							ifile.open("gameHistory.txt");
+						}
+						catch (ifstream::failure& e)
+						{
+							cerr << "Fail to read to file" << endl;
+						}
+
+						ifile.clear();
+						ifile.seekg(0);
+						system("cls");
+						while (getline(ifile, lineInput))
+						{
+							cout << lineInput << endl;
+						}
+						cout << "Press [Enter] to head back to main menu...";
+						cin.ignore();
+						printMenu(m);
 						break;
 					default:
+						ifile.close();
 						m.~menu();
 						modeMenu.~menu();
 						delete m.game;
@@ -55,18 +75,15 @@ void menuPtr(menu &m)
 				}
 				else if (m.thisMenu == "Mode")
 				{
-					switch (m.ptrPos)
+					/*initiate the board if the selection is not 'exit'*/
+					if (m.ptrPos != m.size)
 					{
-					case 0:
 						m.game = new board;
+						m.game->setMode(m.ptrPos);
 						m.game->userController();
 						cout << "Press [Enter] to continue...";
 						cin.ignore();
 						goto escape;
-						break;
-					default:
-						goto escape;
-						break;
 					}
 				}
 				break;
@@ -75,7 +92,7 @@ void menuPtr(menu &m)
 			}
 		}
 	}
-escape:;
+escape:; //exits the loop
 }
 
 void printMenu(menu &m)
