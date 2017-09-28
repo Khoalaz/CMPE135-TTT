@@ -1,4 +1,9 @@
-﻿  Board.cpp
-c:\users\khoalaz\desktop\cmpe135\tictactoe\tictactoe\board.cpp(16): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  TicTacToe.vcxproj -> C:\Users\KhoaLaZ\Desktop\CMPE135\TicTacToe\Debug\TicTacToe.exe
-  TicTacToe.vcxproj -> C:\Users\KhoaLaZ\Desktop\CMPE135\TicTacToe\Debug\TicTacToe.pdb (Partial PDB)
+﻿  Statistics.cpp
+  Source.cpp
+  menu.cpp
+  Functions.cpp
+  Board.cpp
+c:\users\khoalaz\documents\github\cmpe135-ttt\tictactoe\tictactoe\board.cpp(16): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Generating Code...
+  TicTacToe.vcxproj -> C:\Users\KhoaLaZ\Documents\GitHub\CMPE135-TTT\TicTacToe\Debug\TicTacToe.exe
+  TicTacToe.vcxproj -> C:\Users\KhoaLaZ\Documents\GitHub\CMPE135-TTT\TicTacToe\Debug\TicTacToe.pdb (Partial PDB)

@@ -115,11 +115,13 @@
     <ClCompile Include="Functions.cpp" />
     <ClCompile Include="menu.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Statistics.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Board.h" />
     <ClInclude Include="Functions.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="Statistics.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

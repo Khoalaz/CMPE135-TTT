@@ -33,6 +33,9 @@
     <ClCompile Include="Board.cpp">
       <Filter>Resource Files\GameCPP</Filter>
     </ClCompile>
+    <ClCompile Include="Statistics.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Menu.h">
@@ -43,6 +46,9 @@
     </ClInclude>
     <ClInclude Include="Functions.h">
       <Filter>Header Files\GameHeader</Filter>
+    </ClInclude>
+    <ClInclude Include="Statistics.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

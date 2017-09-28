@@ -259,6 +259,7 @@ void board::pushHistory()
 	*historyPtr++;
 }
 
+/*Ofstream game data to and output text file*/
 void board::historyStream()
 {
 	for (int i = 0; i < 11; i++)
@@ -268,6 +269,7 @@ void board::historyStream()
 	ofile << endl;
 }
 
+/*Set the mode of the game*/
 void board::setMode(int mode)
 {
 	this->mode = mode;

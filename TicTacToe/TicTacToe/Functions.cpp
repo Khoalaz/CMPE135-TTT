@@ -4,6 +4,7 @@ HANDLE mConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
 void menuPtr(menu &m)
 {
+	statistics stat;
 	ifstream ifile;
 	string lineInput = "";
 	const int m2Size = 4;
@@ -44,27 +45,15 @@ void menuPtr(menu &m)
 						printMenu(m);
 						break;
 					case 1:
-						try
-						{
-							ifile.open("gameHistory.txt");
-						}
-						catch (ifstream::failure& e)
-						{
-							cerr << "Fail to read to file" << endl;
-						}
-
-						ifile.clear();
-						ifile.seekg(0);
 						system("cls");
-						while (getline(ifile, lineInput))
-						{
-							cout << lineInput << endl;
-						}
+						stat.updateVector();
+						stat.printHistory();
 						cout << "Press [Enter] to head back to main menu...";
 						cin.ignore();
 						printMenu(m);
 						break;
 					default:
+						stat.~statistics();
 						ifile.close();
 						m.~menu();
 						modeMenu.~menu();
