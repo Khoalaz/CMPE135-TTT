@@ -54,9 +54,9 @@ void menuPtr(menu &m)
 						break;
 					default:
 						stat.~statistics();
-						ifile.close();
 						m.~menu();
 						modeMenu.~menu();
+						ifile.close();
 						delete m.game;
 						exit(EXIT_SUCCESS);
 						break;
@@ -65,18 +65,16 @@ void menuPtr(menu &m)
 				else if (m.thisMenu == "Mode")
 				{
 					/*initiate the board if the selection is not 'exit'*/
-					if (m.ptrPos != m.size)
+					if (m.ptrPos != m.size-1)
 					{
 						m.game = new board;
 						m.game->setMode(m.ptrPos);
 						m.game->userController();
 						cout << "Press [Enter] to continue...";
 						cin.ignore();
-						goto escape;
 					}
+					goto escape;
 				}
-				break;
-			default:
 				break;
 			}
 		}

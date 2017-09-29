@@ -58,7 +58,7 @@ bool board::winCondition() const
 		}
 		break;
 	case 4:
-		if ((boardAr[3] == player && boardAr[5] == player) || (boardAr[1] == player && boardAr[7] == player))
+		if ((boardAr[3] == player && boardAr[5] == player) || (boardAr[1] == player && boardAr[7] == player) || (boardAr[0] == player && boardAr[8] == player) || (boardAr[2] == player && boardAr[6] == player))
 		{
 			return true;
 		}
