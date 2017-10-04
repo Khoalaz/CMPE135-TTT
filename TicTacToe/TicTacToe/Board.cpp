@@ -219,8 +219,6 @@ void board::userController()
 					}
 				}
 				break;
-			default:
-				break;
 			}
 		}
 	}

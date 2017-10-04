@@ -2,23 +2,7 @@
 
 statistics::statistics()
 {
-	try
-	{
-		ifile.open("gameHistory.txt");
-	}
-	catch (fstream::failure& e)
-	{
-		cerr << "Error code:" << e.what() << endl;
-	}
-
 	gameStat.p1Win, gameStat.p2Win, gameStat.totalGames = 0;
-
-}
-
-statistics::~statistics()
-{
-	ifile.close();
-	historyData.~vector();
 }
 
 /*Prints every elements in a vector*/
@@ -29,27 +13,12 @@ void statistics::printHistory() const
 		<< "Draws: " << gameStat.totalGames - (gameStat.p1Win + gameStat.p2Win) << endl
 		<< "Total Games: " << gameStat.totalGames << endl
 		<< "__________________________________________" << endl << endl
-		<< "gameHistory.txt file output: " << endl;
-	
-	for (vector<string>::const_iterator it = historyData.begin(); it != historyData.end(); ++it)
-	{
-		cout << *it << endl;
-	}
+		<< "gameHistory.txt file output: " << endl;	
 }
 
-/*Updates the vector of with new elements*/
-void statistics::updateVector()
-{
-	ifile.clear();
-	while (getline(ifile, lineInput))
-	{
-		updateStat();
-		historyData.push_back(lineInput);
-	}
-}
 
 /*Increases the count values of the statistic data structure*/
-void statistics::updateStat()
+void statistics::updateStat(string &lineInput)
 {
 	switch (lineInput.at(10))
 	{

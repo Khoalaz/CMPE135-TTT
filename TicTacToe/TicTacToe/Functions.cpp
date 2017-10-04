@@ -4,7 +4,7 @@ HANDLE mConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
 void menuPtr(menu &m)
 {
-	statistics stat;
+	ai AIBot;
 	ifstream ifile;
 	string lineInput = "";
 	const int m2Size = 4;
@@ -46,18 +46,19 @@ void menuPtr(menu &m)
 						break;
 					case 1:
 						system("cls");
-						stat.updateVector();
-						stat.printHistory();
+						AIBot.updateVector();
+						AIBot.printHistory();
 						cout << "Press [Enter] to head back to main menu...";
 						cin.ignore();
+						m.ptrPos = 0;
 						printMenu(m);
 						break;
 					default:
-						stat.~statistics();
-						m.~menu();
 						modeMenu.~menu();
 						ifile.close();
 						delete m.game;
+						AIBot.~ai();
+						m.~menu();
 						exit(EXIT_SUCCESS);
 						break;
 					}
@@ -73,13 +74,12 @@ void menuPtr(menu &m)
 						cout << "Press [Enter] to continue...";
 						cin.ignore();
 					}
-					goto escape;
+					return;
 				}
 				break;
 			}
 		}
 	}
-escape:; //exits the loop
 }
 
 void printMenu(menu &m)

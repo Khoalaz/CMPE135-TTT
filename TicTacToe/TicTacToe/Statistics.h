@@ -11,21 +11,16 @@ class statistics
 {
 public:
 	statistics();
-	~statistics();
+	friend class ai;
 	void printHistory() const;
-	void updateVector();
-	
 
 protected:
-	vector<string> historyData;
-	void updateStat();
+	void updateStat(string &lineInput);
 	struct stat
 	{
-		double p1Win, p2Win, totalGames;
+		float p1Win, p2Win, totalGames;
 	};
 
 private:
 	stat gameStat;
-	string lineInput;
-	fstream ifile;
 };

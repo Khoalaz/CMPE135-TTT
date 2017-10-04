@@ -9,5 +9,4 @@ int main()
 	menu mainMenu(m1, m1Size, "Main", "");
 
 	menuPtr(mainMenu);
-	mainMenu.~menu();
 }
