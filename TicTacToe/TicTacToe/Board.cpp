@@ -162,7 +162,10 @@ void board::userController()
 	this->printBoard();
 	while (KB_code != KB_ESCAPE)
 	{
-		if (_kbhit())
+		/*mode 0: allows both players to move, mode 1
+		  mode 1: only player 1 can  move
+		  mode 2: no player can move*/
+		if (_kbhit() && (mode == 0 || (mode == 1 && player == 'O'))) 
 		{
 			KB_code = _getch();
 			switch (KB_code)
@@ -204,6 +207,7 @@ void board::userController()
 					{
 						printBoard();
 						gameOver();
+						return;
 					}
 					else
 					{
@@ -221,13 +225,17 @@ void board::userController()
 				break;
 			}
 		}
+		else if (player == 'X')
+		{
+			AI->aiTurn();
+			player = 'O';
+		}
 	}
 }
 
 /*Determines who the winner is or if it is a draw*/
 void board::gameOver()
 {
-	KB_code = KB_ESCAPE;
 	if (winCondition())
 	{
 		if (player == 'O')

@@ -8,6 +8,8 @@ public:
 	~ai();
 	void updateVector();
 	void printHistory() const;
+	
+	void aiTurn();
 
 protected:
 	statistics stat;

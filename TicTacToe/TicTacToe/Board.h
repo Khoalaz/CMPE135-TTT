@@ -8,6 +8,8 @@
 #include <stdio.h>
 #include <fstream>
 
+#include "AI.h"
+
 #define KB_LEFT 75
 #define KB_RIGHT 77
 #define KB_ESCAPE 27
@@ -41,4 +43,5 @@ protected:
 	int history[11];
 	int *historyPtr;
 	fstream ofile;
+	ai *AI;
 };

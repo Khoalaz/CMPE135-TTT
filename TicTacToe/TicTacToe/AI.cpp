@@ -40,3 +40,9 @@ void ai::printHistory() const
 		cout << *it << endl;
 	}
 }
+
+
+void ai::aiTurn()
+{
+	cout << "AI turn" << endl;
+}
