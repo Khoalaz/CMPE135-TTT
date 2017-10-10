@@ -48,7 +48,7 @@ void menuPtr(menu &m)
 						system("cls");
 						AIBot.updateVector();
 						AIBot.printHistory();
-						cout << "Press [Enter] to head back to main menu...";
+						cout << endl << "Press [Enter] to head back to main menu...";
 						cin.ignore();
 						m.ptrPos = 0;
 						printMenu(m);

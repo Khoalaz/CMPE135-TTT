@@ -225,7 +225,7 @@ void board::userController()
 				break;
 			}
 		}
-		else if (player == 'X')
+		else if (!mode == 0 && player == 'X' )
 		{
 			AI->aiTurn();
 			player = 'O';
