@@ -38,7 +38,7 @@ void statistics::printHistory() const
 			cout << "Loser moves: " << it->loserMoves << endl;
 		}
 		cout << "__________________________________________" << endl << endl
-			<< "gameHistory.txt file output: " << endl;	
+			<< "AI data used: " << endl;	
 }
 
 

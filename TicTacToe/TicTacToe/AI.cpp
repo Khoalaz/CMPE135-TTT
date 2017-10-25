@@ -27,7 +27,6 @@ void ai::updateVector()
 	while (getline(ifile, lineInput))
 	{
 		stat.updateStat(lineInput);
-		dataVec->push_back(lineInput);
 	}
 }
 
@@ -42,7 +41,20 @@ void ai::printHistory() const
 }
 
 
-void ai::aiTurn()
+void ai::aiTurn(int userPosition)
 {
+	searchData(userPosition);
 	cout << "AI turn" << endl;
+}
+
+/*
+	returns the amount of matches
+*/
+int ai::searchData(int &userPosition) const
+{
+	for (vector<string>::iterator it = dataVec->begin(); it != dataVec->end(); it++)
+	{
+
+	}
+	return 0;
 }

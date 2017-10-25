@@ -5,6 +5,8 @@
 #include <string>
 #include <math.h>
 
+#include "DataStructures.h"
+
 using namespace std;
 
 class statistics
@@ -17,19 +19,9 @@ public:
 protected:
 	void updateStat(string &lineInput);
 	void parseStat(string &lineInput);
-	struct stat
-	{
-		float p1Win, p2Win, totalGames;
-	};
-
-	struct AIstat
-	{
-		string winnerMoves;
-		string loserMoves;
-	};
 
 private:
-	stat gameStat;
 	vector<AIstat> *NNstat;
 	AIstat thisStat;
+	stats gameStat;
 };

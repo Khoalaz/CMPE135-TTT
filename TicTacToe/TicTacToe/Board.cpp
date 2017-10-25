@@ -13,7 +13,7 @@ board::board()
 	history[11] = {0}; //0-8: input history, 9:first player 0/1, 10: winner 0/1
 	historyPtr = history;
 
-	srand(time(NULL)); //randomly selects who goes first
+	srand((unsigned int)time(NULL)); //randomly selects who goes first
 	if (rand() % 2 == 0)
 	{
 		player = 'O'; //player1=O ,  player2=X
@@ -227,7 +227,7 @@ void board::userController()
 		}
 		else if (!mode == 0 && player == 'X' )
 		{
-			AI->aiTurn();
+			AI->aiTurn(this->userPosition); //function change
 			player = 'O';
 		}
 	}
