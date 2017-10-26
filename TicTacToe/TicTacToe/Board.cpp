@@ -227,7 +227,7 @@ void board::userController()
 		}
 		else if (!mode == 0 && player == 'X' )
 		{
-			AI->aiTurn(this->userPosition); //function change
+			AI->aiTurn(this->userPosition);
 			player = 'O';
 		}
 	}

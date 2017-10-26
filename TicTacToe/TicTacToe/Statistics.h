@@ -15,6 +15,7 @@ public:
 	statistics();
 	friend class ai;
 	void printHistory() const;
+	void searchData(vector<AIstat> *dataVec);
 
 protected:
 	void updateStat(string &lineInput);

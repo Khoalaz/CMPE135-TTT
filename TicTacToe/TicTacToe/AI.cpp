@@ -10,8 +10,13 @@ ai::ai()
 	{
 		cerr << "Error code:" << e.what() << endl;
 	}
+	this->updateVector();
+	dataVec = new vector<AIstat>;
+}
 
-	dataVec = new vector<string>;
+ai::ai(const ai&obj)
+{
+	this->stat = obj.stat;
 }
 
 ai::~ai()
@@ -34,9 +39,10 @@ void ai::updateVector()
 void ai::printHistory() const
 {
 	stat.printHistory();
-	for (vector<string>::const_iterator it = dataVec->begin(); it != dataVec->end(); ++it)
+	for (vector<AIstat>::const_iterator it = dataVec->begin(); it != dataVec->end(); ++it)
 	{
-		cout << *it << endl;
+		cout << it->winnerMoves << endl;
+		cout << it->loserMoves << endl;
 	}
 }
 
@@ -47,12 +53,10 @@ void ai::aiTurn(int userPosition)
 	cout << "AI turn" << endl;
 }
 
-/*
-	returns the amount of matches
-*/
-int ai::searchData(int &userPosition) const
+/*returns the amount of matches*/
+int ai::searchData(int &userPosition) 
 {
-	for (vector<string>::iterator it = dataVec->begin(); it != dataVec->end(); it++)
+	for (vector<AIstat>::iterator it = stat.NNstat->begin(); it != stat.NNstat->end(); it++)
 	{
 
 	}

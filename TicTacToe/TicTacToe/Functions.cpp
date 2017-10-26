@@ -69,6 +69,7 @@ void menuPtr(menu &m)
 					if (m.ptrPos != m.size-1)
 					{
 						m.game = new board;
+						m.game->AI = new ai(AIBot);
 						m.game->setMode(m.ptrPos);
 						m.game->userController();
 						cout << "Press [Enter] to continue...";

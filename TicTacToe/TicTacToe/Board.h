@@ -27,6 +27,7 @@ public:
 	void userController();
 	void historyStream();
 	void setMode(int mode);
+	ai *AI;
 	
 
 protected:
@@ -43,5 +44,4 @@ protected:
 	int history[11];
 	int *historyPtr;
 	fstream ofile;
-	ai *AI;
 };
