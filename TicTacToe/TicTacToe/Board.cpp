@@ -12,6 +12,8 @@ board::board()
 	KB_code = 0; //user key input
 	history[11] = {0}; //0-8: input history, 9:first player 0/1, 10: winner 0/1
 	historyPtr = history;
+	secondFirst = false;
+	turnCounter = 0;
 
 	srand((unsigned int)time(NULL)); //randomly selects who goes first
 	if (rand() % 2 == 0)
@@ -20,6 +22,7 @@ board::board()
 	}
 	else
 	{
+		secondFirst = true;
 		player = 'X';
 		history[9] = 1;
 	}
@@ -213,6 +216,7 @@ void board::userController()
 					{
 						if (player == 'O')
 						{
+							turnCounter++;
 							player = 'X';
 						}
 						else
@@ -227,8 +231,32 @@ void board::userController()
 		}
 		else if (!mode == 0 && player == 'X' )
 		{
-			AI->aiTurn(this->userPosition);
+			/*Things to work on
+			1. Turn tracking5
+			2. User moves parsing
+			3. Data modification*/
+
+			//push guard
+			if (secondFirst == false)
+			{
+				AI->pushUserMove(this->userPosition);
+			}
+			else
+			{
+				secondFirst = false;
+			}
+
+			cout << "Turn counter: " << turnCounter << endl;
+			AI->aiTurn();
+
+			turnCounter++;
 			player = 'O';
+		}
+
+		if (turnCounter == 2)
+		{
+			AI->incrementTurn();
+			turnCounter = 0;
 		}
 	}
 }
@@ -257,8 +285,7 @@ void board::gameOver()
 	}
 }
 
-/*Keeps track of history
-  Position starts at 1-9*/
+/*Keeps track of history. Position starts at 1-9*/
 void board::pushHistory()
 {
 	*historyPtr = userPosition+1;

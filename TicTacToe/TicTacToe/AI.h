@@ -1,5 +1,6 @@
 #pragma once
 #include "Statistics.h"
+#include <algorithm>
 
 class ai
 {
@@ -9,17 +10,20 @@ public:
 	~ai();
 	void updateVector();
 	void printHistory() const;
-	
-	void aiTurn(int userPosition);
+	void pushUserMove(int userPosition);
+	void aiTurn();
+	void incrementTurn();
 
 protected:
-	int searchData(int &userPosition);
 	statistics stat;
+	void modifyData();
 
 private:
 	int turn; //keeps track of what turn it is
 	double probability[9]; //probability of selecting a position
-	vector<AIstat> *dataVec;
+	double alpha;
+	vector<AIstat> dataVec;
+	string userMoves;
 	string lineInput;
 	fstream ifile;
 };

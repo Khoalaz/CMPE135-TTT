@@ -36,6 +36,8 @@ protected:
 	bool isFull() const;
 	void pushHistory();
 
+	int turnCounter;
+	bool secondFirst;
 	int mode;
 	char boardAr[9];
 	int userPosition;

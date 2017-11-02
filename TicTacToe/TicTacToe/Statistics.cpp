@@ -108,8 +108,3 @@ void statistics::parseStat(string &lineInput)
 	thisStat.winnerMoves.clear();
 	thisStat.loserMoves.clear();
 }
-
-void statistics::searchData(vector<AIstat> *dataVec)
-{
-	
-}
